@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parts</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+   
+   <div class="navbar">
+    <ul>
+      <li><a href="/admin/dashboard">Admin Panel</a></li>
+      <li><a href="/customer_dashboard">Car Parts</a></li>
+      <li><a href="/logout">Logout</a></li>
+    </ul>
+  </div>
+   
+    <div class="customer-container">
+    <h1>Customer Dashboard</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Quantity</th>
+        </tr>
+        {% for part in car_parts %}
+        <tr>
+            <td>{{ part[1] }}</td>  <!-- Assuming name is in the second column -->
+            <td>{{ part[2] }}</td>  <!-- Assuming description is in the third column -->
+            <td>{{ part[3] }}</td>  <!-- Assuming price is in the fourth column -->
+            <td>{{ part[4] }}</td>  <!-- Assuming quantity is in the fifth column -->
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a class="order-button" href="mailto:your@email.com">
+        Order Parts
+    </a>
+   
+   </div>
+</body>
+</html>

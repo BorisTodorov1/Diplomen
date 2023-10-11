@@ -1,0 +1,83 @@
+/* Reset default margin and padding */
+body, h1, label {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Global styles */
+  body {
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Admin panel styles */
+  h1 {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .navbar {
+    background-color: #333;
+    padding: 10px;
+  }
+  
+  .navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  
+  .navbar li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .navbar li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+  }
+  
+  .navbar li a:hover {
+    background-color: #555;
+  }
+  
+  form.forM {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  form.forM label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  form.forM input[type="text"],
+  form.forM input[type="number"],
+  form.forM textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+  }
+  
+  form.forM input[type="submit"] {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+  }
+  
+  form.forM input[type="submit"]:hover {
+    background-color: #555;
+  }
+  

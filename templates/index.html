@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Car Parts Website</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-brand">
+                <a href="/" class="navbar-logo">Car Parts</a>
+            </div>
+            <ul class="navbar-menu">
+                <li><a href="/login">Log In</a></li>
+                <li><a href="/register">Sign up</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Welcome to Car Parts</h1>
+                <p>Find the perfect car parts and accessories for your vehicle.</p>
+                <p>Log in to review our goods and order</p>
+            </div>
+        </section>
+        <section class="features">
+            <div class="feature">
+                <img src="{{ url_for('static', filename='engine.jpg') }}" alt="Feature 1">
+                <h2>Parts for complete restavration</h2>
+                <p>Discover a wide range of high-quality car parts and accessories.</p>
+            </div>
+            <div class="feature">
+                <img src="{{ url_for('static', filename='oilFilter.jpg') }}" alt="Feature 2">
+                <h2>Maintenance</h2>
+                <p>Our collection features the highest-quality maintenance parts.</p>
+            </div>
+            <div class="feature">
+                <img src="{{ url_for('static', filename='clutch.jpg') }}" alt="Feature 3">
+                <h2>Spice it up</h2>
+                <p>We also offer parts to improve the performance of your cars.</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Car Parts. All rights reserved.</p>
+    </footer>
+</body>
+</html>
