@@ -1,41 +1,70 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Admin Dashboard</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-  <h1>Welcome to the Admin Dashboard</h1>
+{% extends 'base.html' %}
 
-  <!-- Add your navigation menu or sidebar herse -->
+{% block title %}AutoHub - Admin Dashboard{% endblock %}
 
-  <div class="navbar">
-    <ul>
-      <li><a href="/admin/dashboard">Admin Panel</a></li>
-      <li><a href="/customer_dashboard">Car Parts</a></li>
-      <li><a href="/logout">Logout</a></li>
-    </ul>
-  </div>
- 
- 
-  <h2>Add Part</h2>
-  <form action="{{ url_for('add_part') }}" method="POST" class="forM">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required><br><br>
-  
-      <label for="description">Description:</label>
-      <textarea id="description" name="description" required></textarea><br><br>
-  
-      <label for="quantity">Quantity:</label>
-      <input type="number" id="quantity" name="quantity" required><br><br>
-  
-      <label for="price">Price:</label>
-      <input type="number" id="price" name="price" required><br><br>
-  
-      <input type="submit" value="Add Part">
-  </form>
-  
- 
-  <!-- Add your other dashboard components, tables, or data visualization elements here -->
-</body>
-</html>
+{% block content %}
+    <h1>Admin Dashboard</h1>
+    <h2>Categories</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Definition</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for category in categories %}
+                <tr>
+                    <td>{{ category.id }}</td>
+                    <td>{{ category.name }}</td>
+                    <td>{{ category.definition }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h2>Customers</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Role</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for customer in customers %}
+                <tr>
+                    <td>{{ customer.id }}</td>
+                    <td>{{ customer.email }}</td>
+                    <td>{{ customer.role }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h2>Orders</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Order Number</th>
+                <th>User ID</th>
+                <th>Order Time</th>
+                <th>Delivery Time</th>
+                <th>Deliver Location</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+                <tr>
+                    <td>{{ order.id }}</td>
+                    <td>{{ order.order_number }}</td>
+                    <td>{{ order.user_id }}</td>
+                    <td>{{ order.order_time }}</td>
+                    <td>{{ order.delivery_time }}</td>
+                    <td>{{ order.deliver_location }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

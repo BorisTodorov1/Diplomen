@@ -1,36 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Login</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-    <div class="login-form">
-        <h1>Log In</h1>
-        <form method="POST" action="/login">
-            <div class="form-group">
-                <input type="email" id="email" name="email" placeholder="your@mail.com" required>
-            </div>
-            <div class="form-group">
-                <input type="password" id="password" name="password" placeholder="**********" required>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Log In" class="btn">
-            </div>
-        </form>
-        <h2>Not a member? Sing up!</h2>
-        <form action="{{ url_for('register') }}" method="POST">
-            <div class="form-group">
-                <input type="email" name="email" placeholder="your@mail.com" required>
-            </div>
-            <div class="form-group">
-                <input type="password" name="password" placeholder="**********" required>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Sign Up" class="btn">
-            </div>
-        </form>
-        <a href="/" class="button">Home</a>
-    </div>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}AutoHub - Login{% endblock %}
+
+{% block content %}
+    <h1>Login</h1>
+    <form method="post" action="{{ url_for('login') }}">
+        <label for="email">Email:</label>
+        <input type="email" name="email" required><br>
+        <label for="password">Password:</label>
+        <input type="password" name="password" required><br>
+        <input type="submit" value="Login">
+    </form>
+{% endblock %}

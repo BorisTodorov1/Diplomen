@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}AutoHub{% endblock %}</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            {% if 'user_id' in session %}
+                {% if User.query.get(session['user_id']).role == 'admin' %}
+                    <li><a href="{{ url_for('admin_dashboard') }}">Admin Dashboard</a></li>
+                    <li><a href="{{ url_for('admin_add_category') }}">Add Category</a></li>
+                {% elif User.query.get(session['user_id']).role == 'employee' %}
+                    <li><a href="{{ url_for('employee_dashboard') }}">Employee Dashboard</a></li>
+                {% elif User.query.get(session['user_id']).role == 'courier' %}
+                    <li><a href="{{ url_for('courier_dashboard') }}">Courier Dashboard</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('customer_dashboard') }}">Customer Dashboard</a></li>
+                    <li><a href="{{ url_for('add_part') }}">Add Part</a></li>
+                {% endif %}
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            {% else %}
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+                <li><a href="{{ url_for('register') }}">Register</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    <div>
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

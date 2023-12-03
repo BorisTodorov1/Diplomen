@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}AutoHub - Add Category{% endblock %}
+
+{% block content %}
+    <h1>Add Category</h1>
+    <form method="post" action="{{ url_for('add_category') }}">
+        <label for="name">Name:</label>
+        <input type="text" name="name" required><br>
+        <label for="definition">Definition:</label>
+        <input type="text" name="definition" required><br>
+        <input type="submit" value="Add Category">
+    </form>
+{% endblock %}

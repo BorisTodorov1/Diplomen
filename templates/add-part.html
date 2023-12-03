@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}AutoHub - Add Part{% endblock %}
+
+{% block content %}
+    <h1>Add Part</h1>
+    <form method="POST" action="{{ url_for('add_part') }}">
+        <label for="name">Name:</label>
+        <input type="text" name="name" required><br>
+        <label for="description">Description:</label>
+        <input type="text" name="description" required><br>
+        <label for="quantity">Quantity:</label>
+        <input type="number" name="quantity" required><br>
+        <label for="price">Price:</label>
+        <input type="text" name="price" required><br>
+        <input type="submit" value="Add Part">
+    </form>
+{% endblock %}

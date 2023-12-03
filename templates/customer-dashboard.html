@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}AutoHub - Customer Dashboard{% endblock %}
+
+{% block content %}
+    <h1>Customer Dashboard</h1>
+    <h2>Available Car Parts</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for part in car_parts %}
+                <tr>
+                    <td>{{ part.id }}</td>
+                    <td>{{ part.name }}</td>
+                    <td>{{ part.description }}</td>
+                    <td>{{ part.price }}</td>
+                    <td>{{ part.quantity }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
